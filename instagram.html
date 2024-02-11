@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login • Instagram</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    /*body {
+      min-height: 100vh;
+    }*/
+    .main {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .login__header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      background-image: url("https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613112/images/home-phones_ytawby.webp");
+      background-repeat: no-repeat;
+      background-size: 466.6px 635.5px;
+      height: 640px;
+      width: 468px;
+    }
+    .login__header-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .login__header-image .img {
+      position: absolute;
+      top: 25.8px;
+      left: 157px;
+      transition: all 2s;
+    }
+    .login__main {
+      max-width: 350px;
+      width: 100%;
+    }
+    .login__form {
+      border: 0.5px solid #ccc;
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .login__form-logo {
+      width: 200px;
+      margin: 0 auto;
+    }
+    .login__form-logo img {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    .login__form-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      height: 100%;
+      padding: 16px 0;
+    }
+    .box-input {
+      position: relative;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 12px 8px 4px 8px;
+    }
+    .box-input input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    .box-input label {
+      position: absolute;
+      top: 12px;
+      left: 8px;
+      pointer-events: none;
+      transition: 0.5s;
+      font-size: 12px;
+    }
+
+    .box-input input:focus ~ label,
+    .box-input input:valid ~ label {
+      top: 4px;
+      font-size: 9px;
+      color: #5a5f73;
+    }
+    .login__form-form button {
+      padding: 8px 8px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4db5f9;
+      color: #fff;
+      font-weight: 500;
+      margin-top: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .login__form-form button:hover {
+      background-color: #1877f2;
+    }
+
+    .login__form-separator {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    .login__form-separator div {
+      height: 1px;
+      background-color: #ccc;
+      flex-shrink: 1;
+      flex-grow: 1;
+    }
+    .login__form-separator span {
+      margin: 0 16px;
+    }
+    .login__form-other {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+    .login__form-other a {
+      text-decoration: none;
+      color: #387185;
+    }
+    .login__form-other a i {
+      margin-right: 4px;
+      font-size: 18px;
+    }
+    .login__form-other a:first-child {
+      font-weight: 500;
+      color: #385185;
+    }
+
+    .login__form-download {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 8px;
+    }
+    .login__form-register {
+      display: flex;
+      flex-direction: row;
+      padding: 24px 0;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      margin-top: 12px;
+      gap: 4px;
+    }
+    .login__form-register a {
+      text-decoration: none;
+      color: #1877f2;
+      font-weight: 500;
+    }
+    .login__form-download {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      width: 100%;
+    }
+    .login__form-download__img {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .fbwrapper {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .fb a {
+      font-weight: 600;
+      font-size: 14px;
+      display: inline;
+      vertical-align: middle;
+      margin: 20px 0 0 10px;
+      text-decoration: none;
+      color: rgb(107, 106, 106);
+    }
+
+    .fb img {
+      vertical-align: middle;
+    }
+
+    footer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 8px;
+    }
+
+    footer ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    footer ul li {
+      list-style: none;
+    }
+
+    footer ul li a {
+      text-decoration: none;
+      color: #5a5f73;
+      font-size: 12px;
+    }
+    footer .footer__select {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      
+    }
+    footer .footer__select select,
+    footer .footer__select p {
+      font-size: 12px;
+      color: #5a5f73;
+      background-color: white;
+    }
+
+    footer .footer__select select {
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 850px) {
+      .login__header {
+        display: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .login__form,
+      .login__form-register {
+        border: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class='main'>
+    <div class='container'>
+      <div class='login__header'>
+        <div class='login__header-image'>
+          <img class='img' src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613132/images/screenshot1_hnqzpf.webp" alt="screenshot1">
+          <img class='img' src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613132/images/screenshot2_eqlckw.webp" alt="screenshot2">
+          <img class='img' src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613133/images/screenshot3_tjk8i1.webp" alt="screenshot3">
+          <img class='img' src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613131/images/screenshot4_jdhkf6.webp" alt="screenshot4">
+        </div>
+      </div>
+
+      <div class='login__main'>
+        <div class='login__form'>
+          <div class='login__form-logo'>
+            <img src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693691316/images/instagram_htanxm.webp" alt="logo-instagram">
+          </div>
+          <form class='login__form-form' method="post">
+            <div class='box-input'>
+              <input type="text" name="" required="">
+              <label>Phone number, username, or email</label>
+            </div>
+            <div class='box-input'>
+              <input type="password" name="" required="">
+              <label>Password</label>
+            </div>
+            <button type="submit">Log In</button>
+          </form>
+          <div class='login__form-separator'>
+            <div></div>
+            <span>OR</span>
+            <div></div>
+          </div>
+          <div class='login__form-other'>
+            
+    <div class="fbwrapper">
+      <div class="fb"><a href="https://facebook.com"><img src="https://i.imgur.com/exksovo.png"> <strong>Log in with Facebook</strong></a></div>
+    </div>
+            
+            <a href="#">Forgot password?</a>
+          </div>
+        </div>
+        <div class='login__form-register'>
+          <p>Don't have an account?</p>
+          <a href="#"><strong>Sign up</strong></a>
+        </div>
+
+        <div class='login__form-download'>
+          <span>Get the app.</span>
+          <div class='login__form-download__img'>
+            <img src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613105/images/googleplay_kadwio.webp" alt="google-play" width='140px' height='44px'>
+            <img src="https://res.cloudinary.com/dxbbbewxt/image/upload/v1693613091/images/microsoft_avvnum.webp" alt="microsoft" width='140px' height='44px'>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <ul>
+        <li><a href='#' target='_blank'>Meta</a></li>
+        <li><a href='#' target='_blank'>About</a></li>
+        <li><a href='#' target='_blank'>Blog</a></li>
+        <li><a href='#' target='_blank'>Jobs</a></li>
+        <li><a href='#' target='_blank'>Help</a></li>
+        <li><a href='#' target='_blank'>API</a></li>
+        <li><a href='#' target='_blank'>Privacy</a></li>
+        <li><a href='#' target='_blank'>Cookie Settings</a></li>
+        <li><a href='#' target='_blank'>Terms</a></li>
+        <li><a href='#' target='_blank'>Locations</a></li>
+        <li><a href='#' target='_blank'>Instagram Lite</a></li>
+        <li><a href='#' target='_blank'>Threads</a></li>
+        <li><a href='#' target='_blank'>Contact & Non-Users</a></li>
+        <li><a href='#' target='_blank'>Meta Verified</a></li>
+      </ul>
+
+      <div class='footer__select'>
+        <select name="" id="">
+          <option value="">English (United States)</option>
+          <option value="">Spanish (Spain)</option>
+          <option value="">English</option>
+          <option value="">Portuguese</option>
+          <option value="">Arabic</option>
+        </select>
+        <p>© 2022 Instagram from Meta</p>
+      </div>
+    </footer>
+  </section>
+
+  <script>
+    window.addEventListener("load", () => {
+      const images = document.querySelectorAll(".img");
+      let currentIndex = 0;
+
+      function showImage(index) {
+        images.forEach((img, i) => {
+          if (i === index) {
+            img.style.opacity = "1";
+          } else {
+            img.style.opacity = "0";
+          }
+        });
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+      }
+
+      let interval = setInterval(nextImage, 5000);
+
+      images[images.length - 1].addEventListener("transitionend", () => {
+        if (currentIndex === images.length - 1) {
+          currentIndex = 0;
+          clearInterval(interval);
+          setTimeout(() => {
+            interval = setInterval(nextImage, 4000);
+          }, 1000);
+        }
+      });
+
+      showImage(currentIndex);
+    });
+  </script>
+</body>
+
+</html>
