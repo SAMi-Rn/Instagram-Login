@@ -1,2 +1,2 @@
 # Instagram-Login
-HTMlL form of Instagram Login
+HTML form of Instagram Login
