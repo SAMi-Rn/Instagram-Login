@@ -1,4 +1,6 @@
 # Fake Instagram Login Page (Educational Purposes Only)
+<img width="1876" alt="Screenshot 2024-04-27 at 6 51 58 PM" src="https://github.com/SAMi-Rn/Instagram-Login/assets/108373193/c755fdcd-966a-4847-b7f0-806701d5ff26">
+
 ## Description
 This  is a mockup of the Instagram login page, crafted as a part of the COMP 8003 course assignment. It demonstrates how phishing attacks may be created and serves as a cautionary example for educational and preventative cybersecurity training. The page replicates the look and feel of Instagram's login interface to discuss the tactics used by malicious actors to deceive users into providing sensitive information.
 
